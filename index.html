@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        .dialog-box {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes-btn {
+            background-color: green;
+            color: white;
+        }
+        .no-btn {
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dialog-box">
+        <h2>Will you be my Valentine? 👉👈</h2>
+        <h3>~Chachoondar</h3>
+        <button class="yes-btn" onclick="yesClicked()">Yes</button>
+        <button class="no-btn" id="noButton" onclick="moveButton()">No</button>
+    </div>
+
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = "<h3>Awwww! ❤️ Date chorein, Insta De dein🤭</h3>";
+        }
+
+        function moveButton() {
+            let button = document.getElementById("noButton");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+
+</body>
+</html>
