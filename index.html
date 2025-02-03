@@ -9,9 +9,6 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 100px;
-            overflow: hidden;
-            position: relative;
-            height: 100vh;
         }
         .dialog-box {
             display: inline-block;
@@ -21,62 +18,45 @@
             background-color: #f9f9f9;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
         }
-        .button-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: relative;
-        }
         button {
+            margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            transition: all 0.1s ease; /* Smooth animation */
         }
         .yes-btn {
-            background-color: green;
+            background-color: red;
             color: white;
-            position: relative;
+            position: absolute;
         }
         .no-btn {
-            background-color: red;
+            background-color: green;
             color: white;
         }
     </style>
 </head>
 <body>
-
     <div class="dialog-box">
-        <h2>Mehreen Hussain, Will you marry me? 👉👈</h2>
-        <h3>~Boomer 🥺</h3>
-        <div class="button-container">
-            <button class="yes-btn" id="yesButton" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
-            <button class="no-btn" onclick="noClicked()">No</button>
-        </div>
+        <h2>Will you be my Valentine? 👉👈</h2>
+        <h3>~Chachoondar</h3>
+        <button class="yes-btn" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
+        <button class="no-btn" onclick="showMessage()">No</button>
     </div>
 
     <script>
+        function showMessage() {
+            document.body.innerHTML = "<h3>Awwww! ❤️ Date chorein, Insta De dein🤭</h3>";
+        }
+
         function moveButton() {
-            let button = document.getElementById("yesButton");
-            
-            let maxX = window.innerWidth - button.offsetWidth - 20; // Prevent out-of-bounds
-            let maxY = window.innerHeight - button.offsetHeight - 20;
-
-            let x = Math.random() * maxX;
-            let y = Math.random() * maxY;
-
-            button.style.position = "absolute"; // Ensure it can move freely
+            let button = document.querySelector('.yes-btn');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
         }
-
-        function noClicked() {
-            document.body.innerHTML = "<h3>💔 I knew it. But still, take care Mehreen...</h3>";
-        }
     </script>
-
 </body>
 </html>
