@@ -20,14 +20,13 @@
             border-radius: 10px;
             background-color: #f9f9f9;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
         }
         .button-container {
             margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 20px;
+            position: relative;
         }
         button {
             padding: 10px 20px;
@@ -41,9 +40,8 @@
             color: white;
             position: absolute;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.1s ease; /* Smooth movement */
+            transform: translateX(-50%);
+            transition: all 0.1s ease;
         }
         .no-btn {
             background-color: red;
@@ -57,24 +55,23 @@
         <h2>Mehreen Hussain, Will you marry me? 👉👈</h2>
         <h3>~Boomer 🥺</h3>
         <div class="button-container">
+            <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button>
             <button class="no-btn" onclick="noClicked()">No</button>
         </div>
     </div>
 
-    <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button> <!-- Moved outside -->
-
     <script>
         function moveButton() {
             let button = document.getElementById("yesButton");
-            
-            let maxX = window.innerWidth - button.offsetWidth - 10; // Prevent out-of-bounds
-            let maxY = window.innerHeight - button.offsetHeight - 10;
+            let container = document.querySelector(".button-container");
+
+            let maxX = container.clientWidth - button.offsetWidth - 10;
+            let maxY = container.clientHeight - button.offsetHeight - 10;
 
             let x = Math.random() * maxX;
             let y = Math.random() * maxY;
 
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
+            button.style.transform = `translate(${x}px, ${y}px)`;
         }
 
         function noClicked() {
