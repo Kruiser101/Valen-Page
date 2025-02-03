@@ -34,14 +34,12 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
+            transition: all 0.1s ease; /* Smooth animation */
         }
         .yes-btn {
             background-color: green;
             color: white;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: all 0.1s ease;
+            position: relative;
         }
         .no-btn {
             background-color: red;
@@ -55,7 +53,7 @@
         <h2>Mehreen Hussain, Will you marry me? 👉👈</h2>
         <h3>~Boomer 🥺</h3>
         <div class="button-container">
-            <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button>
+            <button class="yes-btn" id="yesButton" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
             <button class="no-btn" onclick="noClicked()">No</button>
         </div>
     </div>
@@ -63,15 +61,16 @@
     <script>
         function moveButton() {
             let button = document.getElementById("yesButton");
-            let container = document.querySelector(".button-container");
-
-            let maxX = container.clientWidth - button.offsetWidth - 10;
-            let maxY = container.clientHeight - button.offsetHeight - 10;
+            
+            let maxX = window.innerWidth - button.offsetWidth - 20; // Prevent out-of-bounds
+            let maxY = window.innerHeight - button.offsetHeight - 20;
 
             let x = Math.random() * maxX;
             let y = Math.random() * maxY;
 
-            button.style.transform = `translate(${x}px, ${y}px)`;
+            button.style.position = "absolute"; // Ensure it can move freely
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
         }
 
         function noClicked() {
