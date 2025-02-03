@@ -26,6 +26,7 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
+            position: absolute;
         }
         .yes-btn {
             background-color: green;
@@ -34,30 +35,30 @@
         .no-btn {
             background-color: red;
             color: white;
-            position: absolute;
+            position: relative;
         }
     </style>
 </head>
 <body>
 
     <div class="dialog-box">
-        <h2>Will you be my Valentine? 👉👈</h2>
-        <h3>~Chachoondar</h3>
-        <button class="yes-btn" onclick="yesClicked()">Yes</button>
-        <button class="no-btn" id="noButton" onclick="moveButton()">No</button>
+        <h2>Mehreen Hussain, Will you marry me? 👉👈</h2>
+        <h3>~Boomer 🥺</h3>
+        <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button>
+        <button class="no-btn" onclick="noClicked()">No</button>
     </div>
 
     <script>
-        function yesClicked() {
-            document.body.innerHTML = "<h3>Awwww! ❤️ Date chorein, Insta De dein🤭</h3>";
-        }
-
         function moveButton() {
-            let button = document.getElementById("noButton");
+            let button = document.getElementById("yesButton");
             let x = Math.random() * (window.innerWidth - 100);
             let y = Math.random() * (window.innerHeight - 50);
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
+        }
+
+        function noClicked() {
+            document.body.innerHTML = "<h3>💔 I knew it.  Fk you too bitch🥱 </h3>";
         }
     </script>
 
