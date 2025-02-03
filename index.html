@@ -25,29 +25,30 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-        }
-        .yes-btn {
-            background-color: green;  /* Changed back to green */
-            color: white;
             position: absolute;
         }
+        .yes-btn {
+            background-color: green;
+            color: white;
+        }
         .no-btn {
-            background-color: red;  /* Changed back to red */
+            background-color: red;
             color: white;
         }
     </style>
 </head>
 <body>
+
     <div class="dialog-box">
         <h2>Will you be my Valentine? 👉👈</h2>
         <h3>~Chachoondar</h3>
         <button class="yes-btn" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
-        <button class="no-btn" onclick="showMessage()">No</button>
+        <button class="no-btn" onclick="noClicked()">No</button>
     </div>
 
     <script>
-        function showMessage() {
-            document.body.innerHTML = "<h3>Awwww! ❤️ Date chorein, Insta De dein🤭</h3>";
+        function noClicked() {
+            document.body.innerHTML = "<h3>Awwww! 🤭</h3>";
         }
 
         function moveButton() {
@@ -58,5 +59,6 @@
             button.style.top = `${y}px`;
         }
     </script>
+
 </body>
 </html>
