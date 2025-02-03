@@ -10,6 +10,8 @@
             font-family: Arial, sans-serif;
             margin-top: 100px;
             overflow: hidden;
+            position: relative;
+            height: 100vh;
         }
         .dialog-box {
             display: inline-block;
@@ -18,10 +20,11 @@
             border-radius: 10px;
             background-color: #f9f9f9;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
         }
         .button-container {
             margin-top: 20px;
-            position: relative;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -37,12 +40,14 @@
             background-color: green;
             color: white;
             position: absolute;
-            transition: all 0.1s ease; /* Smooth transition */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease; /* Smooth movement */
         }
         .no-btn {
             background-color: red;
             color: white;
-            position: relative;
         }
     </style>
 </head>
@@ -52,16 +57,18 @@
         <h2>Mehreen Hussain, Will you marry me? 👉👈</h2>
         <h3>~Boomer 🥺</h3>
         <div class="button-container">
-            <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button>
             <button class="no-btn" onclick="noClicked()">No</button>
         </div>
     </div>
 
+    <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button> <!-- Moved outside -->
+
     <script>
         function moveButton() {
             let button = document.getElementById("yesButton");
-            let maxX = window.innerWidth - button.offsetWidth - 20;  // Added margin for safety
-            let maxY = window.innerHeight - button.offsetHeight - 20;  // Added margin for safety
+            
+            let maxX = window.innerWidth - button.offsetWidth - 10; // Prevent out-of-bounds
+            let maxY = window.innerHeight - button.offsetHeight - 10;
 
             let x = Math.random() * maxX;
             let y = Math.random() * maxY;
