@@ -22,4 +22,58 @@
         .button-container {
             margin-top: 20px;
             position: relative;
-            display:
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes-btn {
+            background-color: green;
+            color: white;
+            position: absolute;
+            transition: all 0.1s ease; /* Smooth transition */
+        }
+        .no-btn {
+            background-color: red;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dialog-box">
+        <h2>Mehreen Hussain, Will you marry me? 👉👈</h2>
+        <h3>~Boomer 🥺</h3>
+        <div class="button-container">
+            <button class="yes-btn" id="yesButton" onmouseover="moveButton()">Yes</button>
+            <button class="no-btn" onclick="noClicked()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            let button = document.getElementById("yesButton");
+            let maxX = window.innerWidth - button.offsetWidth - 20;  // Added margin for safety
+            let maxY = window.innerHeight - button.offsetHeight - 20;  // Added margin for safety
+
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        function noClicked() {
+            document.body.innerHTML = "<h3>💔 I knew it. But still, take care Mehreen...</h3>";
+        }
+    </script>
+
+</body>
+</html>
