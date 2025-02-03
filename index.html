@@ -25,11 +25,11 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            position: absolute;
         }
         .yes-btn {
             background-color: green;
             color: white;
+            position: absolute; /* Moves away when tapped */
         }
         .no-btn {
             background-color: red;
@@ -42,7 +42,7 @@
     <div class="dialog-box">
         <h2>Will you be my Valentine? 👉👈</h2>
         <h3>~Chachoondar</h3>
-        <button class="yes-btn" onmouseover="moveButton()" onclick="moveButton()">Yes</button>
+        <button class="yes-btn" onclick="moveButton()">Yes</button>
         <button class="no-btn" onclick="noClicked()">No</button>
     </div>
 
